@@ -13,6 +13,7 @@ class Solution:
                     return [i,j]
         return [-1,-1]
 
+    """ Better solution"""
     def twoSumDict(self, nums, target) -> list:
         dict = {}
         for i in range(len(nums)):
@@ -23,9 +24,20 @@ class Solution:
                 return [i,dict[target - nums[i]]]
         return [-1,-1]
 
+    """ Best solution"""
+    def twoSumFastest(self, nums, target) -> list:
+        dict = {}
+        for i in range(len(nums)):
+            if (target - nums[i]) in dict:
+                return [i, dict[target - nums[i]]]
+            else:
+                dict[nums[i]] = i
+        return [-1,-1]
 
-inList = [3,2,4]
+
+inList = [2,7,11,15]
 
 s1 = Solution()
 print(s1.twoSum(inList,9))
-print(s1.twoSumDict(inList,6))
+print(s1.twoSumDict(inList,9))
+print(s1.twoSumFastest(inList,9))
